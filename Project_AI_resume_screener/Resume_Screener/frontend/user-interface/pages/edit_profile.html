@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile - Resume AI</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/edit_profile.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Resume AI</h2>
+      <a href="index.html">Home</a>
+      <a href="resumes.html">Resumes</a>
+      <a href="ATS.html">ATS Score</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="main">
+      <div class="navbar">
+        <div class="logo">Resume Scanner</div>
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search resumes, jobs, or keywords..."
+          />
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="card profile-card">
+          <form
+            class="edit-profile-form"
+            action="#"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="edit-profile-pic-section">
+              <img
+                src="../images/a placeholder profil.jpeg"
+                alt="Profile Picture"
+                class="profile-pic"
+                id="profilePicPreview"
+              />
+              <input
+                type="file"
+                name="profilePic"
+                id="profilePicInput"
+                accept="image/*"
+                onchange="previewProfilePic(event)"
+              />
+            </div>
+
+            <div class="profile-fields">
+              <label for="fullName"><strong>Full Name:</strong></label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value="John Doe"
+                required
+              />
+
+              <label for="email"><strong>Email:</strong></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value="john.doe@example.com"
+                required
+              />
+
+              <label for="location"><strong>Location:</strong></label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                value="San Francisco, CA"
+                required
+              />
+
+              <label for="profession"><strong>Profession:</strong></label>
+              <input
+                type="text"
+                id="profession"
+                name="profession"
+                value="Software Engineer"
+                required
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="save-btn">Save Changes</button>
+              <button
+                type="button"
+                class="cancel-btn"
+                onclick="location.href='profile.html'"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="resumes.html">Resumes</a>
+            <a href="ATS.html">ATS Score</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+          </div>
+          <p class="copyright">&copy; 2025 Resume AI. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function previewProfilePic(event) {
+        const reader = new FileReader();
+        reader.onload = function () {
+          document.getElementById("profilePicPreview").src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    </script>
+    <script src="../Scripts/theme.js"></script>
+  </body>
+</html>

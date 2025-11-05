@@ -1,0 +1,84 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 115px;
+}
+
+
+.navbar {
+  position: fixed;        /* keeps it visible while scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;            /* full page width */
+  background: rgba(132, 132, 224, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  color: #fff;
+  z-index: 1000;
+  box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* When sidebar is open */
+.main.shifted {
+  margin-left: 220px; /* same as sidebar width */
+}
+
+.profile-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2563eb;
+  margin-bottom: 10px;
+}
+
+.profile-image input[type="file"] {
+  margin-top: 10px;
+}
+
+.profile-info {
+  width: 100%;
+}
+
+.profile-info label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+.profile-info input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#saveBtn {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

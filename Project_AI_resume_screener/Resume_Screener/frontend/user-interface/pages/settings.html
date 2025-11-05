@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Resume AI</h2>
+      <a href="index.html">Home</a>
+      <a href="resumes.html">Resumes</a>
+      <a href="ats.html">ATS Score</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html" class="active">Settings</a>
+    </div>
+
+    <div class="main">
+      <div class="navbar">
+        <div class="logo">Resume Scanner</div>
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search resumes, jobs, or keywords..."
+          />
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="card">
+          <h3>Theme</h3>
+          <div class="toggle-row">
+            <span>Enable Dark Mode</span>
+            <label class="switch">
+              <input type="checkbox" id="darkMode" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Notifications</h3>
+          <div class="toggle-row">
+            <span>Resume scan alerts</span>
+            <label class="switch">
+              <input type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-row">
+            <span>Weekly tips & insights</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-row">
+            <span>Product updates</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Resume Scanner Options</h3>
+          <div class="toggle-row">
+            <span>Show ATS score</span>
+            <label class="switch">
+              <input type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-row">
+            <span>Enable keyword suggestions</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-row">
+            <span>Auto-format resume layout</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <button class="saveSettingsBtn">Save Settings</button>
+
+          <div class="success-message" id="successMsg">
+            Settings saved successfully!
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="resumes.html">Resumes</a>
+            <a href="ATS.html">ATS Score</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+          </div>
+          <p class="copyright">&copy; 2025 Resume AI. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../Scripts/settings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Reports | AI Resume Screener</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2b2d42;
+    }
+
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .filter-container label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .filter-container select,
+    .filter-container input {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .filter-container button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background-color: #219ebc;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .filter-container button:hover {
+      background-color: #197592;
+    }
+
+    .charts-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .chart-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      transition: transform 0.2s;
+    }
+
+    .chart-card:hover {
+      transform: scale(1.02);
+    }
+
+    canvas {
+      width: 100%;
+      height: 300px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Initially hide charts */
+    .charts-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📊 HR Analytics Dashboard</h1>
+
+  <!-- Job Role and Date Filters -->
+  <div class="filter-container">
+    <div>
+      <label for="jobRole">Job Role</label>
+      <select id="jobRole">
+        <option value="all">All Roles</option>
+        <option value="developer">Developer</option>
+        <option value="designer">Designer</option>
+        <option value="qa">QA Engineer</option>
+        <option value="manager">Manager</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="fromDate">From Date</label>
+      <input type="date" id="fromDate" />
+    </div>
+
+    <div>
+      <label for="toDate">To Date</label>
+      <input type="date" id="toDate" />
+    </div>
+
+    <div>
+      <label>&nbsp;</label>
+      <button id="generateReport">Generate Report</button>
+    </div>
+  </div>
+
+  <div class="charts-container" id="chartsContainer">
+    <!-- Skill Match Distribution -->
+    <div class="chart-card">
+      <h3>Top Skills Among Candidates</h3>
+      <canvas id="skillChart"></canvas>
+    </div>
+
+    <!-- Candidate Pipeline Overview -->
+    <div class="chart-card">
+      <h3>Candidate Pipeline Overview</h3>
+      <canvas id="pipelineChart"></canvas>
+    </div>
+  </div>
+
+  <footer>© 2025 AI Resume Screener | HR Insights</footer>
+
+  <script>
+    // Skill Match Chart
+    const skillCtx = document.getElementById("skillChart").getContext("2d");
+    const skillChart = new Chart(skillCtx, {
+      type: "bar",
+      data: {
+        labels: ["Python", "React", "SQL", "AWS", "Machine Learning"],
+        datasets: [{
+          label: "Number of Candidates",
+          data: [18, 15, 12, 10, 8],
+          backgroundColor: "#4e79a7"
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: "Top Skills Found in Uploaded Resumes"
+          }
+        },
+        scales: {
+          y: { beginAtZero: true, ticks: { stepSize: 5 } }
+        }
+      }
+    });
+
+    // Candidate Pipeline Chart
+    const pipelineCtx = document.getElementById("pipelineChart").getContext("2d");
+    const pipelineChart = new Chart(pipelineCtx, {
+      type: "bar",
+      data: {
+        labels: ["Applied", "Shortlisted", "Interviewed", "Hired"],
+        datasets: [{
+          label: "Number of Candidates",
+          data: [50, 30, 15, 5],
+          backgroundColor: ["#a0c4ff", "#ffb703", "#fb8500", "#219ebc"]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: "Recruitment Stage Breakdown"
+          }
+        },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Show charts after clicking Generate Report
+    document.getElementById("generateReport").addEventListener("click", () => {
+      const role = document.getElementById("jobRole").value;
+      const from = document.getElementById("fromDate").value;
+      const to = document.getElementById("toDate").value;
+
+      // Show the charts container
+      document.getElementById("chartsContainer").style.display = "grid";
+
+      // Optional alert to confirm selection
+      // alert(Generating report for:\nJob Role: ${role}\nFrom: ${from}\nTo: ${to});
+    });
+  </script>
+</body>
+</html>
